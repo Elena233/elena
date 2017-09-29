@@ -1,0 +1,158 @@
+{\rtf1\ansi\ansicpg1251\deff0\nouicompat\deflang1049{\fonttbl{\f0\fnil\fcharset204 Calibri;}{\f1\fnil\fcharset0 Calibri;}}
+{\colortbl ;\red0\green0\blue255;}
+{\*\generator Riched20 6.2.9200}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\'cf\'eb\'e0\'e3\'e8\'ed\'fb \'e4\'eb\'ff \'e8\'ed\'ef\'f3\'f2\'ee\'e2 \par
+{{\field{\*\fldinst{HYPERLINK https://community.algolia.com/places/documentation.html }}{\fldrslt{https://community.algolia.com/places/documentation.html\ul0\cf0}}}}\f0\fs22\par
+\par
+{{\field{\*\fldinst{HYPERLINK https://habrahabr.ru/post/309430/ }}{\fldrslt{https://habrahabr.ru/post/309430/\ul0\cf0}}}}\f0\fs22\par
+\par
+{{\field{\*\fldinst{HYPERLINK https://habrahabr.ru/post/309430/ }}{\fldrslt{https://habrahabr.ru/post/309430/\ul0\cf0}}}}\f0\fs22\par
+\par
+\par
+\par
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();\par
+/** @var array $arParams */\par
+/** @var array $arResult */\par
+/** @global CMain $APPLICATION */\par
+/** @global CUser $USER */\par
+/** @global CDatabase $DB */\par
+/** @var CBitrixComponentTemplate $this */\par
+/** @var string $templateName */\par
+/** @var string $templateFile */\par
+/** @var string $templateFolder */\par
+/** @var string $componentPath */\par
+/** @var CBitrixComponent $component */\par
+$this->setFrameMode(true);\par
+?>\par
+\par
+\par
+<?$this->SetViewTarget('after_H1');?>\par
+\tab <div class="bl-article">\par
+\tab\tab <?if (!empty($arResult["DISPLAY_PROPERTIES"]["TEMY_PUTESHESTVIY"]["DISPLAY_VALUE"]))\{\par
+\tab\tab\tab echo '<span class="bl-view">\'c2\'e8\'e4\'fb \'ee\'f2\'e4\'fb\'f5\'e0: ';\par
+\tab\tab\tab if(is_array($arResult["DISPLAY_PROPERTIES"]["TEMY_PUTESHESTVIY"]["DISPLAY_VALUE"]))\{\par
+\tab\tab\tab\tab $pval_count = count($arResult["DISPLAY_PROPERTIES"]["TEMY_PUTESHESTVIY"]["DISPLAY_VALUE"]);\par
+\tab\tab\tab\tab foreach($arResult["DISPLAY_PROPERTIES"]["TEMY_PUTESHESTVIY"]["DISPLAY_VALUE"] as $pkey => $pval)\{\par
+\tab\tab\tab\tab\tab echo '<span class="bl-view-inn">';\par
+\tab\tab\tab\tab\tab echo $pval;\par
+\tab\tab\tab\tab\tab echo '</span>';\par
+\tab\tab\tab\tab\tab if ($pkey < ($pval_count - 1)) echo ', ';\par
+\tab\tab\tab\tab\}\par
+\tab\tab\tab\}\par
+\tab\tab\tab else\{\par
+\tab\tab\tab\tab $pval = $arResult["DISPLAY_PROPERTIES"]["TEMY_PUTESHESTVIY"]["DISPLAY_VALUE"];\par
+\tab\tab\tab\tab echo '<span class="bl-view-inn">';\par
+\tab\tab\tab\tab echo $pval;\par
+\tab\tab\tab\tab echo '</span>';\par
+\tab\tab\tab\}\par
+\tab\tab\tab echo '</span>';\par
+\tab\tab\}?>\par
+\tab\tab <?if (!empty($arResult["PROPERTIES"]["CML2_ARTICLE"]["VALUE"])):?>\par
+\tab\tab\tab <span><?=$arResult["PROPERTIES"]["CML2_ARTICLE"]["NAME"].": ".$arResult["PROPERTIES"]["CML2_ARTICLE"]["VALUE"]?></span>\par
+\tab\tab <?endif;?>\par
+\tab </div>\par
+<?$this->EndViewTarget();?>\par
+\par
+<input type="hidden" name="elementID" id="elementID" value="<?=$arResult["ID"]?>"/>\par
+<div class="news-detail">\par
+\tab <div class="swiper-container__text">\par
+\tab\tab <div class="swiper-container__text__inner">\par
+\tab\tab\tab <?=$arResult["PREVIEW_TEXT"]?>\par
+\tab\tab\tab <a href="javascript:void(0)" class="read_more_details indent">\'d7\'e8\'f2\'e0\'f2\'fc \'e4\'e0\'eb\'e5\'e5</a>\par
+\tab\tab </div>\par
+\tab\tab <div class="detailTextFull">\par
+\tab\tab\tab <div class="slider-block-detail"></div>\par
+\tab\tab\tab <?=$arResult["PREVIEW_TEXT"]?>\par
+\tab\tab\tab <?=$arResult["DETAIL_TEXT"]?>\par
+\tab\tab\tab <a href="javascript:void(0)" class="read_more_detail_ indent">\'d1\'ea\'f0\'fb\'f2\'fc \'e4\'e5\'f2\'e0\'eb\'fc\'ed\'ee\'e5 \'ee\'ef\'e8\'f1\'e0\'ed\'e8\'e5</a>\par
+\tab\tab </div>\par
+\tab\tab <div class="detailText">\par
+\tab\tab\tab <a data-fancybox-type="ajax" href="/ajax/popup_map_yandex.php?ajax=1&elid=<?=$arResult["ID"]?>?>" class="show_order_excursion">\'cf\'ee\'f1\'ec\'ee\'f2\'f0\'e5\'f2\'fc \'ed\'e0 \'ea\'e0\'f0\'f2\'e5</a>\par
+\tab\tab </div>\par
+\tab </div>\par
+\tab <script>\par
+\tab\tab $('.read_more_details').bind('click',function() \{\par
+\tab\tab\tab $('.detailTextFull').show();\par
+\tab\tab\tab $('.swiper-container__text__inner').hide();\par
+\tab\tab\});\par
+\par
+\tab $('.read_more_detail_').bind('click',function() \{\par
+\tab\tab\tab $('.detailTextFull').hide();\par
+\tab\tab\tab $('.swiper-container__text__inner').show();\par
+\tab\tab\});\par
+\tab </script>\par
+\tab <?/*swiper start +js*/?>\par
+\tab <div class="swiper-block">\par
+\tab\tab <?if(empty($arResult["PROPERTIES"]["MORE_PHOTO"]["VALUE"][0]["src"])):?>\par
+\tab\tab\tab <div class="swiper-block__photo">\par
+\tab\tab\tab\tab <img class="js-detail-picture-big" src="/images/no_photo_detail.png" alt=""/>\par
+\tab\tab\tab </div>\par
+\tab\tab <?else:?>\par
+\tab\tab\tab <div class="swiper-block__photo">\par
+\tab\tab\tab\tab <img class="js-detail-picture-big" src="<?=$arResult["PROPERTIES"]["MORE_PHOTO"]["VALUE"][0]["src"]?>" alt=""/>\par
+\tab\tab\tab </div>\par
+\tab\tab\tab <div class="gallery-thumbs">\par
+\tab\tab\tab\tab <div class="swiper-container  show ">\par
+\tab\tab\tab\tab\tab <div class="swiper-wrapper">\par
+\tab\tab\tab\tab\tab\tab <?foreach ($arResult["PROPERTIES"]["MORE_PHOTO"]["VALUE"] as $k=>$v):?>\par
+\tab\tab\tab\tab\tab\tab\tab <div class="swiper-slide <?if($k == 0):?>_selected<?endif?>"><img src="<?=$v["src"]?>" alt=""/></div>\par
+\tab\tab\tab\tab\tab\tab <?endforeach?>\par
+\tab\tab\tab\tab\tab </div>\par
+\tab\tab\tab\tab </div>\par
+\tab\tab\tab\tab <div class="swiper-button-prev">\par
+\tab\tab\tab\tab\tab <i class="iconmy-arrow-left"></i>\par
+\tab\tab\tab\tab </div>\par
+\tab\tab\tab\tab <div class="swiper-button-next butt">\par
+\tab\tab\tab\tab\tab <i class="iconmy-arrow-right"></i>\par
+\tab\tab\tab\tab </div>\par
+\tab\tab\tab </div>\par
+\tab\tab <?endif;?>\par
+\tab </div>\par
+\tab <?/*swiper end*/?>\par
+\tab <div class="clear"></div>\par
+</div>\par
+\par
+<?/*anchor start +js*/\par
+/*switch ($arParams["IBLOCK_ID"])\{\par
+\tab case IBLOCK_CITY_ID:?>\par
+\tab\tab <div class="bl-anchor">\par
+\tab\tab\tab <div class="bl-anchor__inner clearfix">\par
+\tab\tab\tab\tab <div class="bl-anchor__link"><a href="#TOUR"><i class="iconmy-tour"></i><span> \'d2\'f3\'f0\'fb</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link"><a href="#EXCURSION"><i class="iconmy-excursions"></i><span>\'dd\'ea\'f1\'ea\'f3\'f0\'f1\'e8\'e8</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link"><a href="#EVENT"><i class="iconmy-Events"></i><span>\'cc\'e5\'f0\'ee\'ef\'f0\'e8\'ff\'f2\'e8\'ff</span></a></div>\par
+\tab\tab\tab\tab <!--<div class="bl-anchor__link"><a href="#HOTEL"><i class="iconmy-bed"></i><span>\'ce\'f2\'e5\'eb\'e8</span></a></div>-->\par
+\tab\tab\tab\tab <div class="bl-anchor__link links-b"><a href="#SIGHT"><i class="iconmy-Attraction"></i><span>\'c4\'ee\'f1\'f2\'ee\'ef\'f0\'e8\'ec\'e5\'f7\'e0\'f2\'e5\'eb\'fc\'ed\'ee\'f1\'f2\'e8</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link"><a href="#FEED"><i class="iconmy-reviews"></i><span>\'ce\'f2\'e7\'fb\'e2\'fb</span></a></div>\par
+\tab\tab\tab </div>\par
+\tab\tab\tab <div class="clear">\tab </div>\par
+\tab\tab </div>\par
+\tab\tab <?break;\par
+\tab case IBLOCK_COUNTRY_ID:?>\par
+\tab\tab <div class="bl-anchor">\par
+\tab\tab\tab <div class="bl-anchor__inner clearfix">\par
+\tab\tab\tab\tab <div class="bl-anchor__link green"><a href="#EXCURSION"><i class="iconmy-excursions"></i><span>\'dd\'ea\'f1\'ea\'f3\'f0\'f1\'e8\'e8</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link green"><a href="#EVENT"><i class="iconmy-Events"></i><span>\'cc\'e5\'f0\'ee\'ef\'f0\'e8\'ff\'f2\'e8\'ff</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link green"><a href="#CITY"><i class="iconmy-place"></i><span>\'c3\'ee\'f0\'ee\'e4\'e0</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link green"><a href="#SERVICE"><i class="iconmy-amenities"></i><span>\'d3\'f1\'eb\'f3\'e3\'e8</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link green links-b"><a href="#FEED"><i class="iconmy-reviews"></i><span>\'ce\'f2\'e7\'fb\'e2\'fb</span></a></div>\par
+\tab\tab\tab\tab <div class="bl-anchor__link green"><a href="#ARTICLE"><i class="iconmy-paper"></i><span>\'d1\'f2\'e0\'f2\'fc\'e8</span></a></div>\par
+\tab\tab\tab </div>\par
+\tab\tab\tab <div class="clear">\tab </div>\par
+\tab\tab </div>\par
+\tab\tab <?break;\par
+\}*/\par
+/*anchor end*/?>\par
+\par
+<input type="hidden" name="path" id="path" value="<?=$this->GetFolder()?>/ajax.php"/>\par
+<input type="hidden" name="country_xml_id" id="country_xml_id" value="<?=$arResult["EXTERNAL_ID"]?>" />\par
+<input type="hidden" name="ids" id="ids" value="<?=implode(";", $arResult["CITY_ID"])?>"/>\par
+<input type="hidden" name="service_ids" id="service_ids" value="<?=implode(";", $arResult["SERVICE_ID"])?>"/>\par
+<input type="hidden" name="feed_ids" id="feed_ids" value="<?=implode(";", $arResult["FEED_ID"])?>"/>\par
+<input type="hidden" name="article_ids" id="article_ids" value="<?=implode(";", $arResult["ARTICLE_ID"])?>"/>\par
+<input type="hidden" name="event_ids" id="event_ids" value="<?=implode(";", $arResult["EVENT_ID"])?>"/>\par
+\par
+\par
+<br><br>\par
+<div class="clearfix"></div>\f1\lang9\par
+}
+ 

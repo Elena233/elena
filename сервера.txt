@@ -1,0 +1,979 @@
+
+	<div class="person-list grid">
+		<?foreach($arSection["ITEMS"] as $arItem):
+			$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+			$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+
+			$property = $arItem['DISPLAY_PROPERTIES'];
+			
+			$target = isset($arParams['DETAIL_TARGET_BLANK']) && $arParams['DETAIL_TARGET_BLANK'] == "Y" ? true : false;
+			
+		?>
+		<div
+			id="<?=$this->GetEditAreaId($arItem['ID']);?>"
+			class="person-item <?
+				if($showSection)
+					echo "col-p-33 col-t-5 col-t-10 col-mm-10";
+				else
+					echo "leader col-p-10 col-t-10 col-m-10 col-mm-10";
+			?>"
+		>
+			<div class="person-item-wr">
+
+				<div class="person-item-img">
+					<a <?=($target ? 'target="_blank"' : '')?> href="<?=($arItem['DETAIL_PAGE_URL'])?>">
+						<?if(is_array($arItem['PREVIEW_PICTURE'])):?>
+							<img src="<?=($arItem['PREVIEW_PICTURE']['SRC'])?>" alt="">
+						<?else:?>
+							<img src="<?=($templateFolder . '/images/no_photo.png')?>" alt="">
+						<?endif;?>
+					</a>
+				</div>
+				<div class="person-item-info">
+					<?if(isset($property['TITLE'])):?>
+					<div class="person-item-prop person-item-degree">
+						<strong class="ttu"><?=($property['TITLE']['DISPLAY_VALUE'])?></strong>
+					</div>
+					<?endif;?>
+					<a <?=($target ? 'target="_blank"' : '')?> href="<?=($arItem['DETAIL_PAGE_URL'])?>" class="person-item-prop person-item-title"><?=($arItem['NAME'])?></a>
+					<?if(isset($property['DEGREE'])):?>
+					<div class="person-item-prop person-item-post"><?=($property['DEGREE']['DISPLAY_VALUE'])?></div>
+					<?endif;?>
+					<?if(isset($property['EMAIL'])):?>
+					<div class="person-item-prop person-item-email">
+						<?=(GetMessage('TPL_WORKING_LIST_P_' . $property['EMAIL']['CODE']))?> <a href="mailto:<?=($property['EMAIL']['DISPLAY_VALUE'])?>"><?=($property['EMAIL']['DISPLAY_VALUE'])?></a>
+					</div>
+					<?endif;?>
+				</div>
+			</div>
+		</div>
+		<?endforeach;?>
+	</div>
+
+
+
+
+
+
+<tr>
+        <td data-label="Payment">&nbsp;2</td>
+        <td data-label="Payment"><a href="/about_the_university/staff/10917/">Романов Евгений Михайлович</a></td>
+        <td data-label="Payment">Президент университета <br></td>
+        <td data-label="Payment">(8362) 68-78-65</td>
+        <td data-label="Payment"> &nbsp;<a href="mailto:romanovem@volgatech.net">romanovem@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td data-label="Payment"> &nbsp;3</td>
+        <td data-label="Payment"><a href="/about_the_university/staff/12589/">Волков Александр Витальевич</a></td>
+        <td data-label="Payment"> Проректор по организационным вопросам и информатизации</td>
+        <td data-label="Payment">(8362)&nbsp; 68-78-18</td>
+        <td data-label="Payment"> &nbsp;<a href="mailto:volkov@volgatech.net">volkov@volgatech.net</a> &nbsp; <br></td>
+    </tr>
+
+    <tr>
+        <td data-label="Payment">&nbsp;4</td>
+        <td data-label="Payment"> <a href="/about_the_university/staff/11045/">Петухов Игорь Валерьевич</a></td>
+        <td data-label="Payment">Проректор по развитию университетского комплекса</td>
+        <td data-label="Payment">(8362)&nbsp; 45-52-11</td>
+        <td data-label="Payment">&nbsp;<a href="mailto:petuhoviv@volgatech.net">petuhoviv@volgatech.net</a> <br></td>
+    </tr>
+    <tr>
+        <td data-label="Payment">&nbsp;5</td>
+        <td data-label="Payment"><a href="/about_the_university/staff/11559/">Иванов Дмитрий Владимирович</a></td>
+        <td data-label="Payment">Проректор по научной работе</td>
+        <td data-label="Payment">(8362)&nbsp; 68-28-31, 45-52-40</td>
+        <td data-label="Payment">&nbsp;<a href="mailto:ivanovdv@volgatech.net">ivanovdv@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td data-label="Payment">&nbsp;6</td>
+        <td data-label="Payment"> <a href="/about_the_university/staff/11061/">Стешина Людмила Александровна</a></td>
+        <td data-label="Payment"> Проректор по образовательной деятельности, доцент</td>
+        <td data-label="Payment"> (8362)&nbsp; 68-60-93</td>
+        <td data-label="Payment"> &nbsp;<a href="mailto:steshinala@volgatech.net">steshinala@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td data-label="Payment">&nbsp;7</td>
+        <td data-label="Payment"> <a href="/about_the_university/staff/12678/">Сапа Светлана Александровна</a></td>
+        <td data-label="Payment"> Главный бухгалтер, начальник управления бухгалтерского учета, отчетности и финансового контроля <br></td>
+        <td data-label="Payment">(8362)&nbsp; 56-59-40</td>
+        <td data-label="Payment"> &nbsp;<a href="mailto:sapasa@volgatech.net">sapasa@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td data-label="Payment"> &nbsp;8</td>
+        <td data-label="Payment"><a href="/about_the_university/staff/12588/">Макаров Александр Николаевич</a></td>
+        <td data-label="Payment">Главный инженер</td>
+        <td data-label="Payment"> (8362)&nbsp; 68-28-25, 68-28-63, 68-28-88</td>
+        <td data-label="Payment">&nbsp;<a href="mailto:makarov@volgatech.net">makarov@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td data-label="Payment"> &nbsp;9</td>
+        <td data-label="Payment"> <a href="/about_the_university/staff/11641/">Казаринов Сергей Владимирович</a></td>
+        <td data-label="Payment"> Начальник управления кадров и документооборота</td>
+        <td data-label="Payment"> (8362)&nbsp; 68-78-20</td>
+        <td data-label="Payment">&nbsp;<a href="mailto:kazarinovsv@volgatech.net">kazarinovsv@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  data-label="Payment">&nbsp;10</td>
+        <td  data-label="Payment"> <a href="/about_the_university/staff/12314/">Гущина Ольга Григорьевна</a></td>
+        <td  data-label="Payment">Начальник управления социальной и воспитательной работы <br></td>
+        <td  data-label="Payment">(8362)&nbsp; 68-78-60</td>
+        <td  data-label="Payment">&nbsp;<a href="mailto:gushhinaog@volgatech.net">gushhinaog@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  data-label="Payment"> &nbsp;11</td>
+        <td  data-label="Payment"><a href="/about_the_university/staff/11897/">Кучеров Андрей Юрьевич</a></td>
+        <td  data-label="Payment"> Главный юрист, начальник имущественно-правового управления</td>
+        <td  data-label="Payment">(8362)&nbsp; 68-60-16</td>
+        <td  data-label="Payment"> &nbsp;<a href="mailto:kucherovay@volgatech.net">kucherovay@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  data-label="Payment"> &nbsp;12</td>
+        <td  data-label="Payment"> <a href="/about_the_university/staff/11407/">Логинова Надежда Вячеславовна</a></td>
+        <td  data-label="Payment"> Начальник управления финансов и экономики </td>
+        <td  data-label="Payment">(8362)&nbsp; 68-28-56, 45-54-37 </td>
+        <td  data-label="Payment"> &nbsp;<a href="mailto:loginova@volgatech.net">loginova@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  data-label="Payment"> &nbsp;13</td>
+        <td  data-label="Payment"> <a href="/about_the_university/staff/12307/">Смоленникова Людмила Витальевна</a></td>
+        <td  data-label="Payment">Начальник учебно-методического управления </td>
+        <td  data-label="Payment">(8362) 68-78-61</td>
+        <td  data-label="Payment"> &nbsp;<a href="mailto:smolennikovalv@volgatech.net">smolennikovalv@volgatech.net</a>&nbsp; </td>
+    </tr>
+    <tr>
+        <td  data-label="Payment"> &nbsp;14</td>
+        <td  data-label="Payment"><a href="/about_the_university/staff/11430/">Андрианов Юрий Семенович</a></td>
+        <td  data-label="Payment">Начальник управления научной и инновационной деятельности</td>
+        <td  data-label="Payment">(8362)&nbsp; 68-68-51, 68-78-53</td>
+        <td  data-label="Payment"> &nbsp;<a href="mailto:andrianovys@volgatech.net">andrianovys@volgatech.net</a>&nbsp; </td>
+    </tr>
+    <tr>
+        <td  data-label="Payment">&nbsp;15 </td>
+        <td  data-label="Payment"> <a href="/about_the_university/staff/12137/">Курбанов Эльдар Аликрамович</a></td>
+        <td  data-label="Payment"> Начальник управления международного сотрудничества<br></td>
+        <td  data-label="Payment">(8362)&nbsp; 68-68-73</td>
+        <td  data-label="Payment"> &nbsp;<a href="mailto:kurbanovea@volgatech.net">kurbanovea@volgatech.net</a> <br> </td>
+    </tr>
+    <tr>
+        <td  data-label="Payment"> &nbsp;16 </td>
+        <td  data-label="Payment"> <a href="/about_the_university/staff/11971/">Богданов Евгений Николаевич</a> </td>
+        <td  data-label="Payment">Начальник управления информационной политики</td>
+        <td  data-label="Payment">(8362) 68-68-94</td>
+        <td  data-label="Payment"> &nbsp;<a href="mailto:bogdanoven@volgatech.net">bogdanoven@volgatech.net</a>&nbsp; </td>
+    </tr>
+    <tr>
+        <td  data-label="Payment">&nbsp;17 </td>
+        <td  data-label="Payment"><a href="/about_the_university/staff/12717/">Митраков Анатолий Александрович</a></td>
+        <td  data-label="Payment">Советник по безопасности</td>
+        <td  data-label="Payment">(8362) 68-78-38</td>
+        <td  data-label="Payment">&nbsp;<a href="mailto:mitrakov@volgatech.net">mitrakov@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  data-label="Payment"> &nbsp;18</td>
+        <td  data-label="Payment"> <a href="/about_the_university/staff/70774/">Калягина Ирина Владимировна</a></td>
+        <td  data-label="Payment"> Директор Волжского филиала университета <br></td>
+        <td  data-label="Payment">(83631) 6-97-95</td>
+        <td  data-label="Payment"> &nbsp;<a href="mailto:volzhsk@volgatech.net">volzhsk@volgatech.net</a>&nbsp;</td>
+    </tr>
+    <tr>
+        <td  data-label="Payment"> &nbsp;19</td>
+        <td  data-label="Payment"> <a href="/about_the_university/staff/70775/">Павлов Вячеслав Валериевич</a> </td>
+        <td  data-label="Payment"> Директор Мариинско-посадского филиала университета </td>
+        <td  data-label="Payment">(83542) 2-14-03, 2-14-64</td>
+        <td  data-label="Payment">&nbsp;<a href="mailto:marposad@volgatech.net">marposad@volgatech.net</a>&nbsp; </td>
+    </tr>
+
+
+
+
+<!--?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?> 
+<div class="link-presentation"> 	 	 		 
+  <div class="bn"> 			 
+    <div class="bn_inner"> 				 
+      <p class="bn_name">Только до 1 мая 2015 г. </p>
+     				 
+      <p class="bn_t_orange">Качественный средний песок 1 класса по цене некондиционного:</p>
+     				 				<a id="bxid_381154" href="/e-store/xml_catalog/index.php?SECTION_ID=99" class="fancy_link" > 					 
+        <div class="car"></div>
+       					 
+        <div class="plashka"></div>
+       				</a> 				 				 
+      <p class="action_t">Акция от лидера Московской области по продаже нерудных материалов Сычевский ПТК</p>
+     				 
+      <p class="phones">т. 8-967-039-6741 Павел Викторович, spv@nnk.ru</p>
+     			</div-->
+ 
+<!--.bn_inner-->
+ 		 
+<!--.bn-->
+ 	 
+<!--<h3><a id="bxid_389270" href="/public/" style="color: #445258; text-decoration: none; display: block; height: 30px; padding-left: 110px; padding-top: 37px; " >Наша презентация</a></h3>
+ 	<span class="news-more-link"><a id="bxid_588301" href="/public/" ><span style="text-decoration: underline;">подробнее</span> <img id="bxid_803834"  /></a></span> <img id="bxid_115254" src="/bitrix/images/fileman/htmledit2/php.gif" border="0"  /> 	-->
+ 
+<br />
+ <a href="http://nnk.ru/content/news/index.php?news=6412" ><img style="border:none; margin-bottom:10px;" src="/images/pesok_3.png" title="Появились новые возможности поставки продукции"  /></a> 	<a href="/order-online/" title="Онлайн заказ" style="padding-left: -10px" ><img alt="Онлайн заказ" src="/images/button.png"  /> <?if ($GLOBALS["APPLICATION"]->GetCurPage(false)!="/railway/"):?> 	 
+  <br />
+ 	</a><a href="/railway/" title="Бесплатный расчет ж/д тарифа" ><img alt="Бесплатный расчет ж/д тарифа" src="/images/rail-button.png"  /> 	 
+  <br />
+ <?endif?> 	</a><a href="/about/cameras/" title="On-line трансляция заводов" style="margin-left: -2px;" ><img alt="On-line трансляция заводов" src="/images/on-line.png"  /></a> 	 
+<br />
+
+
+
+<a class = "ic-os" href="/about/realizaciya_b_u_tehniki_i_tmts/realizatsiya-tmts-so-sklada/" title="Реализация невостребованных ОС и ТМЦ" style="padding-left: -10px; margin-left: 1px;" >
+
+
+<img alt="Реализация невостребованных ОС и ТМЦ" src="/images/bu_tehnika_i_tmts_1.png" style="margin: 10px 0px;"  /></a> 	 
+
+
+
+
+<br />
+<!--
+ 		<a href="/about/realizaciya_b_u_tehniki/" title="Реализация б/у техники" style="padding-left: -10px; margin-left: 1px;" ><img alt="Реализация б/у техникив" src="/images/bu_tehnika.jpg" style="margin: 10px 0px;"  /></a> 	 
+<br />
+	<a href="/tmts/realizatsiya-tmts-so-sklada/" title="Реализация ТМЦ со склада" style="padding-left: -10px; margin-left: 1px;" ><img alt="Реализация ТМЦ со склада" src="/images/realizatsiya-tmts-so-sklada.png" style="margin: 10px 0px;"  /></a>
+<br />
+-->
+ 	<a href="/security.php" title="Обратиться в службу безопасности" style="padding-left: -10px" ><img alt="Обратиться в службу безопасности" src="/images/security-button.png"  /> 	 
+  <br />
+ 	 
+  <br />
+ 	</a><a href="/maps/" title="Карта карьеров" ><img alt="Карта карьеров" src="/images/maps.gif"  /> 	 
+  <br />
+ 
+<!--<a href="http://n-f-o.com/" target="blank" title="Национальный футбольный олимп" style="padding-left: -10px"><img id="bxid_972451" alt="Национальный футбольный олимп" src="http://nnk.ru/upload/medialibrary/934/nfo.jpg"  />-->
+ </a> <a href="/maps/" title="Карта карьеров" > </a> 
+<div id="newsTitle" class="right-sidebar-header"><a href="/maps/" title="Карта карьеров" ></a><a href="/content/news/" >Новости компании</a></div>
+ <?$APPLICATION->IncludeComponent(
+	"citrus:news.list",
+	"news",
+	Array(
+		"IBLOCK_TYPE" => "news",
+		"IBLOCK_ID" => "3",
+		"SHOW_ALL_GROUPS" => array(0=>"1",1=>"",),
+		"NEWS_COUNT" => "3",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_ORDER1" => "DESC",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER2" => "ASC",
+		"FILTER_NAME" => "",
+		"FIELD_CODE" => array(0=>"",1=>"",),
+		"PROPERTY_CODE" => array(0=>"",1=>"",),
+		"CHECK_DATES" => "N",
+		"DETAIL_URL" => "",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_SHADOW" => "Y",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"CACHE_FILTER" => "N",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"DISPLAY_PANEL" => "N",
+		"SET_TITLE" => "N",
+		"SET_STATUS_404" => "N",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"PAGER_TITLE" => "",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => "",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "N",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"AJAX_OPTION_ADDITIONAL" => ""
+	)
+);?> 
+<div id="newsTitle" class="right-sidebar-header"><a href="/industry_news/" >Новости отрасли</a></div>
+ <?$APPLICATION->IncludeComponent(
+	"citrus:news.list",
+	"news",
+	Array(
+		"IBLOCK_TYPE" => "news",
+		"IBLOCK_ID" => "21",
+		"SHOW_ALL_GROUPS" => array(0=>"1",1=>"",),
+		"NEWS_COUNT" => "2",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_ORDER1" => "DESC",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER2" => "ASC",
+		"FILTER_NAME" => "",
+		"FIELD_CODE" => array(0=>"",1=>"",),
+		"PROPERTY_CODE" => array(0=>"",1=>"",),
+		"CHECK_DATES" => "N",
+		"DETAIL_URL" => "",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_SHADOW" => "Y",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"AJAX_OPTION_HISTORY" => "N",
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "3600",
+		"CACHE_FILTER" => "N",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"DISPLAY_PANEL" => "N",
+		"SET_TITLE" => "N",
+		"SET_STATUS_404" => "N",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"DISPLAY_TOP_PAGER" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"PAGER_TITLE" => "",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => "",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "N",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"AJAX_OPTION_ADDITIONAL" => ""
+	)
+);?> <?
+if ($APPLICATION->GetCurDir() != '/personal/subscribe/')
+    echo '<p><a id="bxid_653889" href="/personal/subscribe/" title="Подписка на новости" style="color: #EA5D29; text-decoration: underline;" >Оформить <strong>подписку</strong> на новости</a></p>';
+?>
+
+
+<a href="/about/realizaciya_b_u_tehniki_i_tmts/realizatsiya-tmts-so-sklada/" title="Реализация невостребованных ТМЦ" style="padding-left: -10px; margin-left: 1px;"><img alt="Реализация невостребованных ТМЦ" src="/bitrix/templates/naaco_copy/images/ic-1.png" style="margin: 15px 0 0px 0px;"></a> <br>
+
+
+
+
+
+
+
+<!--?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<div class="link-presentation">
+  <div class="bn">
+    <div class="bn_inner">
+      <p class="bn_name">Только до 1 мая 2015 г. </p>
+
+      <p class="bn_t_orange">Качественный средний песок 1 класса по цене некондиционного:</p>
+     				 				<a id="bxid_381154" href="/e-store/xml_catalog/index.php?SECTION_ID=99" class="fancy_link" >
+        <div class="car"></div>
+
+        <div class="plashka"></div>
+       				</a>
+      <p class="action_t">Акция от лидера Московской области по продаже нерудных материалов Сычевский ПТК</p>
+
+      <p class="phones">т. 8-967-039-6741 Павел Викторович, spv@nnk.ru</p>
+     			</div--> <!--.bn_inner--> <!--.bn--> <!--<h3><a id="bxid_389270" href="/public/" style="color: #445258; text-decoration: none; display: block; height: 30px; padding-left: 110px; padding-top: 37px; " >Наша презентация</a></h3>
+ 	<span class="news-more-link"><a id="bxid_588301" href="/public/" ><span style="text-decoration: underline;">подробнее</span> <img id="bxid_803834"  /></a></span> <img id="bxid_115254" src="/bitrix/images/fileman/htmledit2/php.gif" border="0"  /> 	--> <br>
+ <a href="http://nnk.ru/content/news/index.php?news=6412"><img src="/bitrix/templates/naaco_copy/images/banner.png" style="margin: 15px 0 0px 0px;" title="Появились новые возможности поставки продукции"></a> <a href="/order-online/" title="Онлайн заказ"><img alt="Онлайн заказ" src="/bitrix/templates/naaco_copy/images/online.png" style="margin: 15px 0 0px 0px;"> <?if ($GLOBALS["APPLICATION"]->GetCurPage(false)!="/railway/"):?> <br>
+ </a> <a href="/railway/" title="Бесплатный расчет ж/д тарифа"><img alt="Бесплатный расчет ж/д тарифа" src="/bitrix/templates/naaco_copy/images/tarif.png" style="margin: 15px 0 0px 0px;"> <br>
+ <?endif?> </a> <a href="/about/cameras/" title="On-line трансляция заводов"><img alt="On-line трансляция заводов" src="/bitrix/templates/naaco_copy/images/trans.png" style="margin: 15px 0 0px 0px;"></a> <br>
+
+
+ <a class = "ic-os" href="http://nnk.ru/about/realizaciya_b_u_tehniki/b_u_tehnika/" title="Реализация невостребованных ОС"><img alt="Реализация б/у техникив" src="/bitrix/templates/naaco_copy/images/real.png" style = "margin: 10px 0;"/></a> 
+
+
+
+<a href="/about/realizaciya_b_u_tehniki_i_tmts/realizatsiya-tmts-so-sklada/" title="Реализация невостребованных ТМЦ" style="padding-left: -10px; margin-left: 1px;"><img alt="Реализация б/у техникив" src="/bitrix/templates/naaco_copy/images/real2.png" /></a><br>
+
+
+
+ <!--
+ 		<a href="/about/realizaciya_b_u_tehniki/" title="Реализация б/у техники" style="padding-left: -10px; margin-left: 1px;" ><img alt="Реализация б/у техникив" src="/images/bu_tehnika.jpg" style="margin: 10px 0px;"  /></a>
+<br />
+	<a href="/tmts/realizatsiya-tmts-so-sklada/" title="Реализация невостребованных ТМЦ со склада" style="padding-left: -10px; margin-left: 1px;" ><img alt="Реализация невостребованных ТМЦ со склада" src="/images/realizatsiya-tmts-so-sklada-1.png" style="margin: 10px 0px;"  /></a>
+<br />--> <a href="/security.php" title="Обратиться в службу безопасности"><img alt="Обратиться в службу безопасности" src="/bitrix/templates/naaco_copy/images/security.png" style="margin: 15px 0 0px 0px;"> <br>
+ <br>
+ </a><a href="/maps/" title="Карта карьеров"><img alt="Карта карьеров" src="/images/maps.gif"> <br>
+ <!--<a href="http://n-f-o.com/" target="blank" title="Национальный футбольный олимп" style="padding-left: -10px"><img id="bxid_972451" alt="Национальный футбольный олимп" src="http://nnk.ru/upload/medialibrary/934/nfo.jpg"  />--> </a> <a href="/maps/" title="Карта карьеров"> </a>
+<div id="newsTitle" class="right-sidebar-header">
+ <a href="/maps/" title="Карта карьеров"></a><a href="/content/news/">Новости компании</a>
+</div>
+ <?$APPLICATION->IncludeComponent(
+	"citrus:news.list",
+	"news",
+	Array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_SHADOW" => "Y",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "N",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PANEL" => "N",
+		"DISPLAY_PICTURE" => "N",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(0=>"",1=>"",),
+		"FILTER_NAME" => "",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "3",
+		"IBLOCK_TYPE" => "news",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"NEWS_COUNT" => "3",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => "",
+		"PAGER_TITLE" => "",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(0=>"",1=>"",),
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_ALL_GROUPS" => array(0=>"1",1=>"",),
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC"
+	)
+);?>
+<div id="newsTitle" class="right-sidebar-header">
+ <a href="/industry_news/">Новости отрасли</a>
+</div>
+ <?$APPLICATION->IncludeComponent(
+	"citrus:news.list",
+	"news",
+	Array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_SHADOW" => "Y",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_TIME" => "3600",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "N",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PANEL" => "N",
+		"DISPLAY_PICTURE" => "N",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(0=>"",1=>"",),
+		"FILTER_NAME" => "",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "21",
+		"IBLOCK_TYPE" => "news",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+		"NEWS_COUNT" => "2",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => "",
+		"PAGER_TITLE" => "",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(0=>"",1=>"",),
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_ALL_GROUPS" => array(0=>"1",1=>"",),
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC"
+	)
+);?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?
+if ($APPLICATION->GetCurDir() != '/personal/subscribe/')
+    echo '<p><a id="bxid_653889" href="/personal/subscribe/" title="Подписка на новости" style="color: #EA5D29; text-decoration: underline;" >Оформить <strong>подписку</strong> на новости</a></p>';
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+/** @var array $arParams */
+/** @var array $arResult */
+/** @global CMain $APPLICATION */
+/** @global CUser $USER */
+/** @global CDatabase $DB */
+/** @var CBitrixComponentTemplate $this */
+/** @var string $templateName */
+/** @var string $templateFile */
+/** @var string $templateFolder */
+/** @var string $componentPath */
+/** @var CBitrixComponent $component */
+$this->setFrameMode(true);
+?>
+
+<?//блок location
+$loc_str = 
+	'<div class="form-group location">'.
+		'<div class="form-group-title">'.GetMessage("IBLOCK_FILTER_LOCATION").'</div>'.
+		'<div class="input-container columns">'.
+			'<select name="reviews_countries" id="reviews_countries" class="form-control loc">'.
+				'<option value="">Выберите страну</option>';
+				foreach ($arResult["COUNTRIES"] as $arElement){
+$loc_str .=
+					'<option value="'.$arElement["EXTERNAL_ID"].'"'.(($arElement["EXTERNAL_ID"] == $_GET["reviews_countries"] && $_GET["del_filter"]!="Y") ? " selected" : "" ).'>'.$arElement["NAME"].'</option>';
+				}
+$loc_str .=
+			'</select>'.
+			'<select name="reviews_loc" id="reviews_loc" class="form-control loc">'.
+				'<option value="">Выберите место</option>'.
+			'</select>'.
+		'</div>';
+		if(in_array($arParams["IBLOCK_ID"], array(IBLOCK_EXCUR_ID))){
+$loc_str .=			
+			'<div></br>'.				
+				'<input type="checkbox" class="checkbox" name="include_route" id="include_route" value="Y"'.((($_GET["include_route"]=='Y') && ($_GET["del_filter"]!='Y')) ? " checked" : "").'>'.
+				'<label for="include_route">Включить проходящие маршруты</label>'.
+			'</div>';
+		}
+$loc_str .=
+	'</div>';
+?>
+
+<input type="hidden" name="current_path" id="current_path" value="<?=$APPLICATION->GetCurPage()?>" />
+<input id="path" type="hidden" value="<?=$this->GetFolder()?>/ajax.php?iblock_id=<?echo $arParams["IBLOCK_ID"]?>"/>
+<input id="city_hidden_xml_id" type="hidden" value="<?=$_GET["reviews_loc"]?>"/>
+<?//TODO осталось с давних времен нужно адаптировать?>
+<input id="tour_hidden_xml_id" type="hidden" value="<?=$_GET["reviews_tour"]?>"/>
+<div class="js_fixed_block_replace"></div>
+	<div class="gluey_block">
+		<div class="inner">
+			<div class="reviews_filter">
+				<a class="toggle_filter_link" href="#filter_form_wr"><i class="icon_toggle iconmy-filter-tags"></i></a>
+				<div id="filter_form_wr">
+					<form class="form form_filter" name="curform" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="reviews_filter_form">
+					<div class="row_group_wr">					
+						<?switch($arParams["IBLOCK_ID"]){
+							//Мероприятия
+							case IBLOCK_EVENT_ID:
+								?>
+								<div class="row groups">
+									<div class="col-lg-5 col-md-5"><?echo $loc_str;?></div>
+									<div class="col-lg-4 col-md-4">
+										<?if ($_REQUEST["del_filter"]!="Y"){
+											$from = $_REQUEST['date_from'];
+											$to = $_REQUEST['date_to'];
+										}?>
+										<?$APPLICATION->IncludeComponent(
+											"bitrix:main.calendar",
+											"",
+											Array(
+												"FORM_NAME" => "curform",
+												"HIDE_TIMEBAR" => "Y",
+												"INPUT_NAME" => "date_from",
+												"INPUT_NAME_FINISH" => "date_to",
+												"INPUT_VALUE" => $from,
+												"INPUT_VALUE_FINISH" => $to,
+												"SHOW_INPUT" => "Y",
+												"SHOW_TIME" => "N"
+											),
+											$component->__parent,
+											array('HIDE_ICONS' => "Y")
+										);?>
+									</div>
+								</div>
+								<div class="row groups">
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group location">
+											<div class="form-group-title">Тип</div>
+											<div class="input-container columns">
+												<select name="type" class="form-control">
+													<option value="">Выберите тип</option>
+													<?foreach ($arResult["F_FIELDS"]["TYPES"] as $type):?>
+														<option value="<?=$type?>" <?if ($type == $_GET["type"] && $_GET["del_filter"]!="Y"):?>selected<?endif?>><?=$type?></option>
+													<?endforeach;?>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>								
+								<?
+								break;
+							//Достопримечательности
+							case IBLOCK_SIGHT_ID:
+								?>
+								<div class="row groups">
+									<div class="col-lg-5 col-md-5">
+										<?echo 	$loc_str;?>
+									</div>
+									<div class="col-lg-6 col-md-6">
+										<div class="form-group location">
+											<div class="form-group-title">Тип</div>
+											<div class="input-container columns">
+												<select name="type" class="form-control">
+													<option value="">Выберите тип</option>
+													<?foreach ($arResult["F_FIELDS"]["TYPES"] as $type):?>
+														<option value="<?=$type?>" <?if ($type == $_GET["type"] && $_GET["del_filter"]!="Y"):?>selected<?endif?>><?=$type?></option>
+													<?endforeach?>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?
+								break;
+							//Статьи
+							case IBLOCK_STATI_ID:?>
+								<div class="row groups">
+									<div class="col-lg-5 col-md-5">
+										<?echo 	$loc_str;?>
+									</div>
+									<div class="col-lg-4 col-md-4">
+										<div class="form-group location">
+											<div class="form-group-title">Рубрика</div>
+											<div class="input-container columns">
+												<select name="tema" class="form-control">
+													<option value="">Выберите рубрику</option>
+													<?foreach ($arResult["F_FIELDS"]["TEMA"] as $tema):?>
+														<option value="<?=$tema?>" <?if ($tema == $_GET["tema"] && $_GET["del_filter"]!="Y"):?>selected<?endif?>><?=$tema?></option>
+													<?endforeach?>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+								<?
+								break;
+							//экскурсии
+							case IBLOCK_EXCUR_ID:
+								?>									
+								<div class="row g	roups">
+									<?//location?>
+									<div class="col-lg-4 col-md-4">
+										<?echo 	$loc_str;?>
+									</div>
+									<?//стоимость?>
+									<div class="col-lg-4 col-md-4">
+										<div class="form-group slider">
+											<div class="form-group-title">Стоимость:</div>
+											<div class="input-container ionSlider" data-min="<?=$arResult["F_FIELDS"]["STOIMOST"]["MIN"]?>" data-max="<?=$arResult["F_FIELDS"]["STOIMOST"]["MAX"]?>">
+												<input class="from cost" type="text" name="cost_from" value="<?=$arResult["F_FIELDS"]["STOIMOST"]["MIN_C"]?>" />
+												<input type="hidden" class="ionslider_data hidden">
+												<input class="to cost" type="text" name="cost_to" value="<?=$arResult["F_FIELDS"]["STOIMOST"]["MAX_C"]?>" />
+											</div>
+										</div>
+									</div>
+									<?//продолжительность?>
+									<div class="col-lg-4 col-md-4">
+										<div class="form-group slider">
+											<div class="form-group-title">Продолжительность (в часах):</div>
+											<div class="input-container ionSlider" data-min="<?=$arResult["F_FIELDS"]["PRODOLZHITELNOST"]["MIN"]?>" data-max="<?=$arResult["F_FIELDS"]["PRODOLZHITELNOST"]["MAX"]?>">
+												<input class="from cost" type="text" name="range_from" value="<?=$arResult["F_FIELDS"]["PRODOLZHITELNOST"]["MIN_C"]?>" />
+												<input type="hidden" class="ionslider_data hidden">
+												<input class="to cost" type="text" name="range_to" value="<?=$arResult["F_FIELDS"]["PRODOLZHITELNOST"]["MAX_C"]?>" />
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row groups">
+									<?//вип экскурсии?>
+									<div class="col-lg-4 col-md-4">
+										<div class="form-group location">
+											<div class="form-group-title">Вид экскурсии:</div>
+											<div class="input-container columns">
+												<select name="excur_vid" class="form-control">
+													<option value="">Выберите вид</option>
+													<?foreach ($arResult["F_FIELDS"]["VID_EKSKURSII"] as $val){
+														echo '<option value="'.$val.'" '.(($val == $_GET["excur_vid"] && $_GET["del_filter"]!="Y") ? "selected" : '').'>';
+														echo $val;
+														echo '</option>';
+													}?>
+												</select>
+											</div>
+										</div>
+									</div>
+									<?//тид экскурсии?>
+									<div class="col-lg-8 col-md-8">
+										<div class="form-group travel_topics">
+											<div class="form-group-title">Тип экскурсии:</div>
+											<div class="row">
+												<?foreach ($arResult["F_FIELDS"]["TIPEKSKURSII"] as $key=>$val):?>
+													<div class="col-lg-4 col-md-4 chek_block">
+														<input class="checkbox" <?if (in_array($val, $_GET['excur_type']) && $_GET["del_filter"]!="Y"):?> checked<?endif;?> type="checkbox" name="excur_type[]" id="check_excur_type_<?=$key?>" value="<?=$val?>" />
+														<label for="check_excur_type_<?=$key?>"><span><?=$val?></span></label>
+													</div>
+												<?endforeach;
+												unset($key);?>
+											</div>
+										</div>										
+									</div>
+								</div>
+								<?
+								break;
+						}?>					
+
+
+						<div class="row">
+							<div class="col-lg-7 col-md-7">
+							</div>
+							<div class="col-lg-5 col-md-5">
+								<div class="btn_filter">
+									<div class="btn_filter_it"><a href="javascript:void(0);" class="btn btn_gray btn_little" id="reset">Сбросить</a></div>
+									<div class="btn_filter_it"><a href="javascript:void(0);" class="btn btn_blue btn_little" id="submit">Показать</a></div>
+								</div>
+							</div>
+						</div>
+						</div>
+					</form>
+				</div>
+				<!--<a class="toggle_filter_link" href="#filter_form_wr"><span class="_close">показать фильтр</span><span class="_open">свернуть фильтр</span></a>-->
+			</div><!-- /.reviews_filter-->
+		</div>
+	</div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		<?if (!empty($_GET["reviews_countries"])):?>
+			$("#reviews_countries").change();
+		<?endif?>
+		<?if (!empty($_GET["reviews_loc"])):?>
+			$("body").on("#reviews_loc", "change");
+		<?endif?>
+	});
+</script>
+<script>
+$('select').change(function () {
+     var i = this.selectedIndex;
+     $(this).css('color', i ? 'black' : '');
+     $('option', this).css('color', '#999').eq(i).css('color', i ? 'black' : '#999');
+ });
+</script>
+
+
+
+<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/header.php');
+$APPLICATION->SetTitle("О компании");
+?><p>Здравствуйте, меня зовут Захарова Анна.</p>
+<br>
+<p><img alt="" src="/images/o-kompanii/img1.png" /></p>
+<br>
+<p>Приветствую Вас на сайте интернет-магазина Oriental Dream (Ориентал Дрим).</p>
+<br>
+
+<h2>Универсальный интернет магазин для восточных танцев</h2>
+
+<br>
+<p>Если танец живота — ваша страсть, мы готовы помочь вам в выборе всего необходимого для выступлений и тренировок! В нашем интернет – магазине вы сможете купить именно те товары для восточных танцев, которых вам так не хватало: всевозможные аксессуары, бижутерию, профессиональные тренировочные костюмы, косметику, инструменты и фурнитуру на любой вкус, цвет и уровень цен.</p>
+
+<div style="color: #424242; border: 1px solid #dfdfdf; margin: 6px; padding: 6px; overflow: hidden;">
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/strazy-swarovski/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image747.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/strazy-swarovski/">Стразы Swarovski<span style="margin-right: 0.3em"> </span> <span style="margin-left: -0.3em">(Австрия</span>)</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/strazy-termokleevye/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image706.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/strazy-termokleevye/">Стразы Термоклеевые</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/strazy-xolodnoj-fiksacii/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image705.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/strazy-xolodnoj-fiksacii/">Стразы Холодной Фиксации</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/strazy-prishivnye-steklo/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image669.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/strazy-prishivnye-steklo/">Стразы пришивные Стекло</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/strazy-prishivnye-v-capax/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image743.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/strazy-prishivnye-v-capax/">Стразы пришивные в Цапах</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/strazy-prishivnye-akril/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image666.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/strazy-prishivnye-akril/">Стразы пришивные Акрил</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/strazovaya-cep/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image680.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/strazovaya-cep/">Стразовая цепь</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/rasprodazha-steklo/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image693.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/rasprodazha-steklo/">РАСПРОДАЖА СТЕКЛО</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/businy/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image686.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/businy/">Бусины</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/bizhuteriya/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image689.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/bizhuteriya/">Бижутерия</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/lejsy/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image694.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/lejsy/">Лейсы</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/instrumenty-vspomog-materialy/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image701.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/instrumenty-vspomog-materialy/">Инструменты, Вспомог. материалы</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/kosmetika/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image696.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/kosmetika/">Косметика</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/lify-dina/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image685.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/lify-dina/">Лифы Дина</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/regilin/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image677.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/regilin/">Регилин</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/shipy/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image695.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/shipy/">Шипы</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/trenirovochnaya-odezhda/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image675.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/trenirovochnaya-odezhda/">Тренировочная одежда</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/aksessuary-dlya-tancev/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image664.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/aksessuary-dlya-tancev/">Аксессуары для танцев</a></p>
+</div>
+<div style="text-align: center; display: inline-block; width: 250px;">
+<p><a href="/catalog/752/"> <img style="margin: 2px; padding: 1px; border: 1px solid #dfdfdf; width: 200px; height: 150px;" src="/pics/small_shop_group_image752.jpg" /> </a></p>
+<p><a style="text-decoration: none;" href="/catalog/752/">Подарочные сертификаты</a></p>
+</div>
+</div>
+<p>Oriental Dream — магазин для всех, кто ценит качество вещей и свое время. Мы работаем с лучшими поставщиками Австрии, Китая, Египта. Наша главная цель — сделать товары для восточных танцев доступными!</p>
+<br>
+<p><b> Почему выгодно покупать в Oriental Dream? </b></p>
+<br>
+<ol>
+<li>Вы получаете только отборные, качественные товары: лифы Дина, стразы Swarovski, вейлы из натурального шёлка и многое другое.</li>
+<li>Оформить заказ можно даже ночью: переводом на карту Сбербанка или электронными деньгами: Яндекс.Деньги, Qiwi(Visa QIWI Wallet), Pay Pal.</li>
+<li>Не нужно искать магазин с нужным ассортиментом: всё уже есть у нас на сайте. Заказы приходят вам Почтой России Первым классом или Транспортной компанией в срок от 1 рабочего дня!</li>
+<li>Чтобы купить то, что вам необходимо, необязательно жить поблизости: отправляем заказы не только по всей России, но и в страны СНГ<span style="margin-right: 0.3em"> </span> <span style="margin-left: -0.3em">(Беларусь</span>, Казахстан, Украина и т.д.)</li>
+<li>На этом приятные бонусы не заканчиваются!</li>
+</ol>
+<br>
+<p>В нашем интернет – магазине для восточных танцев у вас есть возможность приобретать подарочные сертификаты и получать индивидуальные подарки! Все самые горячие новости в нашей группе ВКонтакте <a href="http://vk.com/orientaldreamshop">http://vk.com/orientaldreamshop</a></p>
+<br>
+<p><b>Что можно найти в Oriental Dream?</b></p>
+<br>
+<p><b>Для тех, кто танцует</b></p>
+<br>
+<p>Красивые аксессуары ручной работы, модная, удобная тренировочная одежда, платки, трости, вейлы, крылья, цимбалы, мелайя.</p>
+<br>
+<p><b>Для тех, кто шьет</b></p>
+<br>
+<p>Тем, кто обожает самостоятельно украшать костюмы или занимается этим профессионально, представляем всевозможные стразы лучших производителей, бусины, лейсы, стразовые цепи, шипы и удобные инструменты для работы с фурнитурой.</p>
+<br>
+<p>Сделайте ваш первый заказ и убедитесь, насколько легко и приятно работать с интернет — магазином для восточных танцев!</p>
+<br>
+<p>Наш магазин находится в г. Йошкар-Ола (республика Марий Эл). Все товары по России и ближнему зарубежью мы высылаем почтой России (по желанию транспортной компанией).</p>
+<br>
+<p><strong>Телефон: 8-937-118-78-93</strong></p>
+<p><strong>Электронная почта: </strong> <a href="mailto:oriental-shop@mail.ru">info@oriental-shop.ru</a></p>
+<p><strong>Группа вКонтакте: </strong><a href="http://vk.com/orientaldreamshop">http://vk.com/orientaldreamshop</a> </p>
+</div>
+<?require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php');?>
+
+
+
+
+
+
+
+# Virtual Hosts
+#
+# Required modules: mod_log_config
+
+# If you want to maintain multiple domains/hostnames on your
+# machine you can setup VirtualHost containers for them. Most configurations
+# use only name-based virtual hosts so the server doesn't need to worry about
+# IP addresses. This is indicated by the asterisks in the directives below.
+#
+# Please see the documentation at 
+# <URL:http://httpd.apache.org/docs/2.4/vhosts/>
+# for further details before you try to setup virtual hosts.
+#
+# You may use the command line option '-S' to verify your virtual host
+# configuration.
+
+#
+# Use name-based virtual hosting.
+#
+##NameVirtualHost *:80
+#
+# VirtualHost example:
+# Almost any Apache directive may go into a VirtualHost container.
+# The first VirtualHost section is used for all requests that do not
+# match a ##ServerName or ##ServerAlias in any <VirtualHost> block.
+#
+##<VirtualHost *:80>
+    ##ServerAdmin webmaster@dummy-host.example.com
+    ##DocumentRoot "D:/xampp/htdocs/dummy-host.example.com"
+    ##ServerName dummy-host.example.com
+    ##ServerAlias www.dummy-host.example.com
+    ##ErrorLog "logs/dummy-host.example.com-error.log"
+    ##CustomLog "logs/dummy-host.example.com-access.log" common
+##</VirtualHost>
+
+##<VirtualHost *:80>
+    ##ServerAdmin webmaster@dummy-host2.example.com
+    ##DocumentRoot "D:/xampp/htdocs/dummy-host2.example.com"
+    ##ServerName dummy-host2.example.com
+    ##ErrorLog "logs/dummy-host2.example.com-error.log"
+    ##CustomLog "logs/dummy-host2.example.com-access.log" common
+##</VirtualHost>
+
+
+
